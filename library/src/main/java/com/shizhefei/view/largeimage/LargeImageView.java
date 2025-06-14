@@ -512,7 +512,7 @@ public class LargeImageView extends View implements BlockImageLoader.OnImageLoad
                 minScale = 1;
             }
         } else {
-            fitScale = 1.0f;
+            fitScale = (1.0f * imageHeight / layoutHeight) * layoutWidth / imageWidth;
             minScale = 0.25f;
             maxScale = 1.0f * imageWidth / layoutWidth;
             float a = (1.0f * imageWidth / layoutWidth) * layoutHeight / imageHeight;
