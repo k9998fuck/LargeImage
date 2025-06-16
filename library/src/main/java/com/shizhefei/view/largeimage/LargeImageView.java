@@ -59,9 +59,9 @@ public class LargeImageView extends View implements BlockImageLoader.OnImageLoad
     private int mDrawableHeight;
     private float mScale = 1;
     private BitmapDecoderFactory mFactory;
-    private float fitScale;
-    private float maxScale;
-    private float minScale;
+    protected float fitScale;
+    protected float maxScale;
+    protected float minScale;
     private BlockImageLoader.OnImageLoadListener mOnImageLoadListener;
     private Drawable mDrawable;
     private int mLevel;
@@ -501,7 +501,7 @@ public class LargeImageView extends View implements BlockImageLoader.OnImageLoad
      * @param imageWidth
      * @param imageHeight
      */
-    private void initFitImageScale(int imageWidth, int imageHeight) {
+    publie void initFitImageScale(int imageWidth, int imageHeight) {
         final int layoutWidth = getMeasuredWidth();
         final int layoutHeight = getMeasuredHeight();
         if (1f * imageWidth / imageHeight < 1f * layoutWidth / layoutHeight) {
@@ -660,7 +660,7 @@ public class LargeImageView extends View implements BlockImageLoader.OnImageLoad
         this.criticalScaleValueHook = criticalScaleValueHook;
     }
 
-    private CriticalScaleValueHook criticalScaleValueHook;
+    protected CriticalScaleValueHook criticalScaleValueHook;
 
     /**
      * Hook临界值
