@@ -504,7 +504,7 @@ public class LargeImageView extends View implements BlockImageLoader.OnImageLoad
     private void initFitImageScale(int imageWidth, int imageHeight) {
         final int layoutWidth = getMeasuredWidth();
         final int layoutHeight = getMeasuredHeight();
-        if (imageWidth > imageHeight) {
+        if (1f * imageWidth / imageHeight > 1f * layoutWidth / layoutHeight) {
             fitScale = (1.0f * imageWidth / layoutWidth) * layoutHeight / imageHeight;
             maxScale = 1.0f * imageWidth / layoutWidth * 4;
             minScale = 1.0f * imageWidth / layoutWidth / 4;
