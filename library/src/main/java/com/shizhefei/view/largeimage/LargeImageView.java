@@ -513,16 +513,10 @@ public class LargeImageView extends View implements BlockImageLoader.OnImageLoad
             }
         } else {
             fitScale = (1.0f * imageHeight / layoutHeight) * layoutWidth / imageWidth;
-            minScale = 0.25f;
-            maxScale = 1.0f * imageWidth / layoutWidth;
-            float a = (1.0f * imageWidth / layoutWidth) * layoutHeight / imageHeight;
-            float density = getContext().getResources().getDisplayMetrics().density;
-            maxScale = maxScale * density;
-            if (maxScale < 4) {
-                maxScale = 4;
-            }
-            if (minScale > a) {
-                minScale = a;
+            maxScale = 1.0f * imageHeight / layoutHeight * 4;
+            minScale = 1.0f * imageHeight / layoutHeight / 4;
+            if (minScale > 1) {
+                minScale = 1;
             }
         }
         if (criticalScaleValueHook != null) {
